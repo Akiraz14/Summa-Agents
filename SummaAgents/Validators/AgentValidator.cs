@@ -6,9 +6,9 @@ namespace SummaAgents.Validators
     {
         public AgentValidator()
         {
-            RuleFor(x => x).Empty();
+            RuleFor(x => x).NotEmpty();
             RuleFor(x => x).GreaterThan(0);
-            RuleFor(x => x).LessThanOrEqualTo(100);
+            RuleFor(x => x).LessThan(100);
         }
     }
 }

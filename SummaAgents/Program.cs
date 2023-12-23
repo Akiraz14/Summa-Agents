@@ -1,4 +1,5 @@
 ﻿using SummaAgents.Services;
+using SummaAgents.Validators;
 
 namespace SummaAgents
 {
@@ -89,10 +90,13 @@ namespace SummaAgents
                             break;
                     }
                 }
-                catch (Exception ex)
+                catch (ValidationException e)
                 {
-                    Console.WriteLine("The data entered is not correct. Execution canceled");
+                    foreach (var error in e.ValidationErrors)
+                    { Console.WriteLine(error); }
                 }
+                catch (Exception ex)
+                { Console.WriteLine("The data entered is not correct. Execution canceled"); }
                 finally
                 {
                     Console.WriteLine("Do you want to choose one more time?\n" +
@@ -100,7 +104,6 @@ namespace SummaAgents
                     var action = Console.ReadLine();
                     repeat = (action ?? "").ToString();
                 }
-
             }
         }
     }
