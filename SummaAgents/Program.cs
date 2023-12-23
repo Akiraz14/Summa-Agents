@@ -47,6 +47,9 @@ namespace SummaAgents
                         var stairs = Console.ReadLine();
                         if (!Int32.TryParse(stairs, out steps))
                             throw new InvalidDataException();
+
+                        if (steps < 0 || steps >= 100)
+                            throw new InvalidDataException();
                     }
 
                     switch (data[0].ToUpper())
