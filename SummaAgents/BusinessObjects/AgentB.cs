@@ -1,12 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SummaAgents.BusinessObjects;
+using SummaAgents.Services;
 
 namespace SummaAgents.BusinessObjects
 {
-    internal class Agent
+    public class AgentB : IAgents
     {
+        public double getMedia(double[] realNums)
+        {
+            // Harmonic mean
+
+            double reciprocal = 0;
+            foreach (double x in realNums)
+            { reciprocal += 1 / x; }
+
+            return realNums.Length / reciprocal;
+        }
+
+        public string getStaircase(int steps)
+        {
+            string staircase = "";
+            for (var i = steps; i >= 1; i--)
+            {
+                staircase += new string(' ', steps - i) + new string('#', i) + "\r\n";
+            }
+            return staircase;
+        }
+    }
+}
+
+public class AgentBFactory : IAgentsFactory
+{
+    public IAgents CreateAgent()
+    {
+        return new AgentB();
     }
 }

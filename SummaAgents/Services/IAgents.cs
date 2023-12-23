@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SummaAgents.Services
+﻿namespace SummaAgents.Services
 {
-    internal class IAgents
+    public interface IAgents
     {
+        public double getMedia(double[] realNums);
+        public string getStaircase(int steps);
     }
 }

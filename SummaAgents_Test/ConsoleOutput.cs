@@ -1,12 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace SummaAgents_Test
+namespace SummaAgents_Test;
+
+public class ConsoleOutput : IDisposable
 {
-    internal class ConsoleOutput
+    private readonly StringWriter stringWriter;
+    private readonly TextWriter originalOutput;
+
+    public ConsoleOutput()
     {
+        stringWriter = new StringWriter();
+        originalOutput = Console.Out;
+        Console.SetOut(stringWriter);
+    }
+
+    public string GetOutput()
+    {
+        return stringWriter.ToString();
+    }
+
+    public void Dispose()
+    {
+        stringWriter.Dispose();
+        Console.SetOut(originalOutput);
     }
 }

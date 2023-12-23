@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
 
-namespace SummaAgents_Test
+namespace SummaAgents_Test;
+
+public class Tests
 {
-    internal class AgentTest
+    [SetUp]
+    public void Setup()
     {
     }
 }
