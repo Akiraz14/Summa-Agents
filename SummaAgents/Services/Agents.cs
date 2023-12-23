@@ -1,4 +1,6 @@
-﻿namespace SummaAgents.Services
+﻿using SummaAgents.Validators;
+
+namespace SummaAgents.Services
 {
     public class Agents
     {
@@ -19,6 +21,7 @@
         public double getMedia(double[] realNums)
         {
             var agent = _agentsFactory.CreateAgent();
+
             return agent.getMedia(realNums);
         }
 
@@ -30,6 +33,15 @@
         /// <returns>A string representation of a staircase.</returns>
         public string getStaircase(int steps)
         {
+            var validationResult = new AgentValidator().Validate(steps);
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(
+                    message: "Validation failed",
+                    validationResult.Errors.Select(error => error.ErrorMessage)
+                );
+            }
+
             var agent = _agentsFactory.CreateAgent();
             return agent.getStaircase(steps);
         }

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using SummaAgents.Services;
 
-namespace SummaAgents_Test.AgentsTests;
+namespace SummaAgents_Test.TestCases;
 
 public class AgentATest
 {
@@ -20,7 +20,6 @@ public class AgentATest
         IAgentsFactory factory = new AgentAFactory();
         var agent = new Agents(factory);
         var actualOutput = agent.getStaircase(steps);
-        //var actualOutput = consoleOutput.GetOutput();
 
         // Assert
         Assert.AreEqual(expectedOutput, actualOutput);
@@ -41,7 +40,6 @@ public class AgentATest
         IAgentsFactory factory = new AgentAFactory();
         var agent = new Agents(factory);
         var actualOutput = agent.getStaircase(5);
-        //var actualOutput = consoleOutput.GetOutput();
 
         // Assert
         Assert.AreEqual(expectedOutput, actualOutput);

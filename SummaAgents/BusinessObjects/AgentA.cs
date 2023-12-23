@@ -1,5 +1,4 @@
-﻿using SummaAgents.BusinessObjects;
-using SummaAgents.Services;
+﻿using SummaAgents.Services;
 
 namespace SummaAgents.BusinessObjects
 {
@@ -25,13 +24,5 @@ namespace SummaAgents.BusinessObjects
             }
             return staircase;
         }
-    }
-}
-
-public class AgentAFactory : IAgentsFactory
-{
-    public IAgents CreateAgent()
-    {
-        return new AgentA();
     }
 }
