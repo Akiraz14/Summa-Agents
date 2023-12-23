@@ -5,6 +5,37 @@ namespace SummaAgents_Test.TestCases;
 
 public class AgentCTest
 {
+    [TestCase(new double[] { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 })]
+    public void Test_Media_Success(double[] realNums)
+    {
+        // Arrange
+        const double expectedOutput = 15.5;
+
+        // Act
+        IAgentsFactory factory = new AgentCFactory();
+        var agent = new Agents(factory);
+        var actualOutput = agent.getMedia(realNums);
+
+        // Assert
+        Assert.AreEqual(expectedOutput, actualOutput);
+    }
+
+    [TestCase]
+    public void Test_Media_Fail()
+    {
+        // Arrange
+        const double expectedOutput = 15;
+
+        // Act
+        double[] realNums = new double[] { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
+        IAgentsFactory factory = new AgentCFactory();
+        var agent = new Agents(factory);
+        var actualOutput = agent.getMedia(realNums);
+
+        // Assert
+        Assert.AreEqual(expectedOutput, actualOutput);
+    }
+
     [TestCase(4)]
     public void Test_Agent_C_For_4_Success(int steps)
     {

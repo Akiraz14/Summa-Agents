@@ -12,7 +12,7 @@ namespace SummaAgents.BusinessObjects
             foreach (double x in realNums)
             { reciprocal += 1 / x; }
 
-            return realNums.Length / reciprocal;
+            return Math.Round(realNums.Length / reciprocal, 2);
         }
 
         public string getStaircase(int steps)
